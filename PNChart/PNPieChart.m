@@ -152,11 +152,16 @@
     
     NSString *titleValue;
     
+    /*
     if (self.showAbsoluteValues) {
         titleValue = [NSString stringWithFormat:@"%.0f",currentDataItem.value];
     }else{
         titleValue = [NSString stringWithFormat:@"%.0f%%",[self ratioForItemAtIndex:index] * 100];
     }
+     */
+     NSString* titleAbsoluteValue = [NSString stringWithFormat:@"%.0f",currentDataItem.value];
+     NSString* titlePercentValue = [NSString stringWithFormat:@"%.0f%%",[self ratioForItemAtIndex:index] * 100];
+    titleValue = [NSString stringWithFormat:@"%@ (%@)",titleAbsoluteValue, titlePercentValue];
     
     if (self.hideValues)
         descriptionLabel.text = titleText;
