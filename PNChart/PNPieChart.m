@@ -160,10 +160,16 @@
     }
      */
      NSString* titleAbsoluteValue = [NSString stringWithFormat:@"%.0f",currentDataItem.value];
-     NSString* titlePercentValue = [NSString stringWithFormat:@"%.0f%%",[self ratioForItemAtIndex:index] * 100];
-    titleValue = [NSString stringWithFormat:@"%@ (%@)",titleAbsoluteValue, titlePercentValue];
     
-    if (self.hideValues)
+     NSString* titlePercentValue = [NSString stringWithFormat:@"%.0f%%",[self ratioForItemAtIndex:index] * 100];
+        
+    if ([self ratioForItemAtIndex:index] < self.labelWrapPercentageCutoff ) {
+        titleValue = [NSString stringWithFormat:@"%@\r(%@)",titleAbsoluteValue, titlePercentValue];
+        
+    } else {
+        titleValue = [NSString stringWithFormat:@"%@ (%@)",titleAbsoluteValue, titlePercentValue];
+    }
+     if (self.hideValues)
         descriptionLabel.text = titleText;
     else if(!titleText || self.showOnlyValues)
         descriptionLabel.text = titleValue;

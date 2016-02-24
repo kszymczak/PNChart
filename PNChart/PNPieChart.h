@@ -41,6 +41,9 @@
 /** Hide percentage labels less than cutoff value */
 @property (nonatomic, assign) CGFloat labelPercentageCutoff;
 
+/** Wrap percentage labels less than cutoff value */
+@property (nonatomic, assign) CGFloat labelWrapPercentageCutoff;
+
 /** Default YES. */
 @property (nonatomic) BOOL shouldHighlightSectorOnTouch;
 
